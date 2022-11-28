@@ -1,21 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Collection from "./components/Collection";
-import Men from "./components/Men";
-import Women from "./components/Women";
-import Login from "./components/Login";
+import Collection from "./Pages/Collection";
+import Men from "./Pages/Men";
+import Women from "./Pages/Women";
+import Login from "./Pages/Login";
 import Navbar from "./components/Navbar/Navbar";
-import About from "./components/About";
+import About from "./Pages/About";
+import Footer from "./components/Footer";
 
 const App = () => {
-  const [isLogIn, setLogIn] = useState(localStorage.getItem("login") || false);
+  const [isLogIn, setLogIn] = useState(
+    localStorage.getItem("login") || "false"
+  );
   const [userName, setUserName] = useState(
     localStorage.getItem("username") || ""
   );
 
   const formSubmit = (e) => {
     e.preventDefault();
-    setLogIn(true);
+    setLogIn("true");
   };
 
   const handleOnChange = (e) => {
@@ -24,7 +27,7 @@ const App = () => {
   };
 
   const logOut = () => {
-    setLogIn(false);
+    setLogIn("false");
   };
 
   useEffect(() => {
@@ -36,7 +39,7 @@ const App = () => {
   }, [userName]);
 
   return (
-    <div>
+    <div className="flex flex-col justify-between  min-h-screen">
       <BrowserRouter>
         <Navbar isLogIn={isLogIn} logOut={logOut} userName={userName} />
         <Routes>
@@ -51,6 +54,7 @@ const App = () => {
           />
           <Route path="/about" element={<About />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </div>
   );

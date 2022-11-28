@@ -33,7 +33,7 @@ const Navbar = ({ isLogIn, userName , logOut }) => {
 
         <div className='ml-auto flex gap-7'>
           <img className='cursor-pointer active:scale-110' src={cart} alt="../../assets/cart.svg" />
-          {isLogIn ? userElement : loginElement }
+          {isLogIn === "true" ? userElement : loginElement }
         </div>
     </nav>
   )

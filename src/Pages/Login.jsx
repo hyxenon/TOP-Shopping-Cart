@@ -8,7 +8,7 @@ const Login = ({ formSubmit, formChange }) => {
 
   return (
     <div className="flex flex-col items-center">
-      <div className="bg-white w-[427px] h-[417px] mt-16 flex flex-col items-center border-2 border-gray-500 rounded-sm filter drop-shadow">
+      <div className="bg-white w-[427px] h-[417px]  flex flex-col items-center border-2 border-gray-500 rounded-sm filter drop-shadow">
         <img className="w-32 h-5 mt-8" src={logo} alt="../assets/logo.svg" />
 
         <form
