@@ -1,11 +1,13 @@
-import React from 'react'
-import logo from '../../assets/logo.svg'
-import cart from "../../assets/cart.svg"
+import React, { useContext} from 'react'
+import logo from '../assets/logo.svg'
+import cart from "../assets/cart.svg"
 import { Link } from 'react-router-dom'
-import anonymous from "../../assets/anonymous.png";
+import anonymous from "../assets/anonymous.png";
+import LogInContext from '../context/LogInContext';
 
-const Navbar = ({ isLogIn, userName , logOut }) => {
+const Navbar = () => {
 
+  const {isLogIn, userName, logOut} = useContext(LogInContext)
   const loginElement = <h1 className='font-kumbh font-semibold text-semiGray cursor-pointer transition-all hover:text-gray-800 active:scale-110 '><Link to="/login">Login</Link></h1>
   
   const userElement = (
@@ -27,12 +29,12 @@ const Navbar = ({ isLogIn, userName , logOut }) => {
               <li className='font-kumbh font-semibold text-semiGray cursor-pointer transition-all hover:text-gray-800 active:scale-105 '><Link to="/">Collections</Link></li>
               <li className='font-kumbh font-semibold text-semiGray cursor-pointer transition-all hover:text-gray-800 active:scale-105'><Link to="/men">Men</Link></li>
               <li className='font-kumbh font-semibold text-semiGray cursor-pointer transition-all hover:text-gray-800 active:scale-105'><Link to="/women">Women</Link></li>
-              <li className='font-kumbh font-semibold text-semiGray cursor-pointer transition-all hover:text-gray-800 active:scale-105'><Link to="/about">About</Link></li>
+              
             </ul>
         </div>
 
         <div className='ml-auto flex gap-7'>
-          <img className='cursor-pointer active:scale-110' src={cart} alt="../../assets/cart.svg" />
+          <img className='cursor-pointer hover:scale-110 active:scale-125' src={cart} alt="../../assets/cart.svg" />
           {isLogIn === "true" ? userElement : loginElement }
         </div>
     </nav>

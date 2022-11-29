@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import logo from "../assets/logo.svg";
 import fbLogo from "../assets/facebook.svg";
 import { useNavigate } from "react-router-dom";
+import LogInContext from "../context/LogInContext";
 
-const Login = ({ formSubmit, formChange }) => {
+const Login = () => {
   const navigate = useNavigate();
-
+  
+  const {formSubmit, handleOnChange} = useContext(LogInContext)
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center grow mt-16">
       <div className="bg-white w-[427px] h-[417px]  flex flex-col items-center border-2 border-gray-500 rounded-sm filter drop-shadow">
         <img className="w-32 h-5 mt-8" src={logo} alt="../assets/logo.svg" />
 
@@ -24,7 +26,7 @@ const Login = ({ formSubmit, formChange }) => {
             placeholder="Username"
             name="username"
             required
-            onChange={(e) => formChange(e)}
+            onChange={(e) => handleOnChange(e)}
           />
           <input
             className="w-[308px] py-3 pl-4 text-xs border-2 border-gray-500"
