@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 
 const PreviewItemContext = createContext()
@@ -6,14 +6,16 @@ const PreviewItemContext = createContext()
 
 export function PreviewItemProvider({ children }){
 
-    const [item, setItem] = useState({
+    const [item, setItem] = useState( JSON.parse(localStorage.getItem('items')) || {
         name: "",
         price: "",
         img: ""
     })
 
+    useEffect(()=> {
+        localStorage.setItem('item',JSON.stringify(item))
+    },[item])
     const cardClick = (name1,price1,img1) => {
-        
         setItem({name:name1,price:price1,img:img1})
     }
 

@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
-import cart from '../assets/cart.svg'
 import PreviewItemContext from '../context/PreviewItemContext'
 
 
@@ -20,7 +19,6 @@ const Card = ({name,price,img}) => {
 
         <div className='mt-3 mb-5 flex gap-3'>
         <h1 className='font-bold'>${price}</h1>
-        <img className='hover:scale-110' src={cart} alt="" />
         </div>
         
     </div>

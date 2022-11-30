@@ -1,12 +1,11 @@
 import React, { useContext } from 'react'
+import CartContext from '../context/CartContext'
 import PreviewItemContext from '../context/PreviewItemContext'
 
 const PreviewItem = () => {
 
   const { item:{name,price,img} } = useContext(PreviewItemContext)
-  console.log(name)
-  console.log(price)
-  console.log(img)
+  const { addToCart } = useContext(CartContext)
   return (
     <main className='grow mt-10'>
         <div className='pl-44 pr-52 mt-10 flex gap-32 items-center justify-center'>
@@ -30,9 +29,9 @@ const PreviewItem = () => {
                     <p>0</p>
                   <i className="fa-solid fa-plus cursor-pointer text-primary hover:text-orange-600 active:scale-110 transition-all"></i>
               </div>
-              <div className='flex py-4 w-1/2 bg-primary items-center justify-center rounded-xl shadow-md gap-4 cursor-pointer hover:bg-orange-400 active:scale-110 transition-all'>
+              <div onClick={addToCart} className='flex py-4 w-1/2 bg-primary items-center justify-center rounded-xl shadow-md gap-4 cursor-pointer hover:bg-orange-400 active:scale-110 transition-all'>
               <i className="fa-solid fa-cart-shopping text-white"></i>
-                <button className='text-white'>Add to cart</button>
+                <button className='text-white' >Add to cart</button>
               </div>
             </div>
           </div>
