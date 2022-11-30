@@ -4,12 +4,9 @@ const CartContext = createContext()
 
 export function CartProvider({ children }){
     
-    const cardClick = (name,price,img) => {
-        console.log(`Name: ${name} Price: ${price} image: ${img}`)
-    }
 
     return(
-        <CartContext.Provider value={{cardClick}}>
+        <CartContext.Provider>
             {children}
         </CartContext.Provider>
     )

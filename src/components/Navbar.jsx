@@ -21,7 +21,7 @@ const Navbar = () => {
   )
 
   return (
-    <nav className='pl-[175px] pr-[213px] py-[50px] border-b border-gray-500 shadow drop-shadow-sm flex items-center'>
+    <nav className='pl-44 pr-[213px] py-12 border-b border-gray-500 shadow drop-shadow-sm flex items-center'>
 
         <div className='flex items-center gap-12'>
             <img src={logo} alt="../../assets/logo.svg" />
