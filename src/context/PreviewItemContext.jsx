@@ -6,7 +6,7 @@ const PreviewItemContext = createContext()
 
 export function PreviewItemProvider({ children }){
 
-    const [item, setItem] = useState( JSON.parse(localStorage.getItem('items')) || {
+    const [item, setItem] = useState( JSON.parse(localStorage.getItem('item')) || {
         name: "",
         price: "",
         img: ""
