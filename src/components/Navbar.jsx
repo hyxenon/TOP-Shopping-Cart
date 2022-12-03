@@ -9,7 +9,7 @@ import Cart from "./Cart";
 
 const Navbar = () => {
   const { isLogIn, userName, logOut } = useContext(LogInContext);
-  const {cartClick, count} = useContext(CartContext)
+  const { cartClick, cartItems } = useContext(CartContext);
 
   const loginElement = (
     <h1 className="font-kumbh font-semibold text-semiGray cursor-pointer transition-all hover:text-gray-800 active:scale-110 ">
@@ -54,22 +54,19 @@ const Navbar = () => {
       </div>
 
       <div className="ml-auto flex gap-7 relative ">
-        <div className="relative cursor-pointer hover:scale-110"  onClick={cartClick} >
-            <img
-              
-              src={cart}
-              alt="../../assets/cart.svg"
-             
-            />
-            <div className="absolute py-1 px-2 -bottom-2 -right-4 bg-gray-400 rounded-full text-white text-xs flex items-center justify-center">
-              {count}
-            </div>
+        <div
+          className="relative cursor-pointer hover:scale-110"
+          onClick={cartClick}
+        >
+          <img src={cart} alt="../../assets/cart.svg" />
+          <div className="absolute py-1 px-2 -bottom-2 -right-4 bg-gray-400 rounded-full text-white text-xs flex items-center justify-center">
+            {cartItems.length}
+          </div>
         </div>
-       
+
         {isLogIn === "true" ? userElement : loginElement}
 
-       <Cart />
-
+        <Cart />
       </div>
     </nav>
   );

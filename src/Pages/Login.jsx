@@ -6,8 +6,8 @@ import LogInContext from "../context/LogInContext";
 
 const Login = () => {
   const navigate = useNavigate();
-  
-  const {formSubmit, handleOnChange} = useContext(LogInContext)
+
+  const { formSubmit, handleOnChange } = useContext(LogInContext);
   return (
     <div className="flex flex-col items-center grow mt-16">
       <div className="bg-white w-[427px] h-[417px]  flex flex-col items-center border-2 border-gray-500 rounded-sm filter drop-shadow">
